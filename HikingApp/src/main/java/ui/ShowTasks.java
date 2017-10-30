@@ -7,11 +7,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
-public class ShowHikes
+public class ShowTasks
 {
     public static Scene getScene()
     {
-        Text text = new Text("Hike History");
+        Text text = new Text("Tasks Page");
         NavBar nav = new NavBar();
         HBox box = nav.getNavBar();
 

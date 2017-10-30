@@ -1,17 +1,19 @@
 package ui;
 
 import controller.Dashboard;
+import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
-public class ShowHikes
+public class HomePage
 {
     public static Scene getScene()
     {
-        Text text = new Text("Hike History");
+        Text text = new Text("Home Page");
         NavBar nav = new NavBar();
         HBox box = nav.getNavBar();
 
@@ -23,4 +25,5 @@ public class ShowHikes
 
         return new Scene(box, Dashboard.WIN_WIDTH, Dashboard.WIN_HEIGHT);
     }
+
 }
