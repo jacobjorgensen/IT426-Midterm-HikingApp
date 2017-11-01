@@ -1,12 +1,29 @@
+/*
+ * Jacob Laqua, Mackenzie Larson, Kenny Still
+ * 11/1/2017
+ * HikeLog.java
+ * This class stores all of the individual hikes
+ */
 package model;
 
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * This class stores all of the individual hikes.
+ * Also, reads and writes the hike objects to/from a text file.
+ *
+ * @author Jacob Laqua, Mackenzie Larson, Kenny Still
+ * @version 1.0
+ */
 public class HikeLog
 {
     private Hike[] logOfHikes;
 
+    /**
+     * Reads Hike objects from a file and loads them into an array.
+     * @return Hike[]
+     */
     public Hike[] readHikes()
     {
         ArrayList<Hike> hikeList = new ArrayList<>();
@@ -39,6 +56,10 @@ public class HikeLog
         return logOfHikes;
     }
 
+    /**
+     * Takes the Hike objects currently in the logOfHikes array
+     * and saves them to a file.
+     */
     public void writeHikes()
     {
         try {
@@ -60,5 +81,14 @@ public class HikeLog
             System.out.println("Error initializing stream");
         }
 
+    }
+
+    /**
+     * getter for logOfHikes
+     * @return Hike[] logOfHikes
+     */
+    public Hike[] getLogOfHikes()
+    {
+        return logOfHikes;
     }
 }
