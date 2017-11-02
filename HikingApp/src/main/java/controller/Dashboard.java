@@ -2,10 +2,7 @@ package controller;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import ui.Messages;
-import ui.HomePage;
-import ui.ShowHikes;
-import ui.ShowTasks;
+import ui.*;
 
 public class Dashboard extends Application
 {
@@ -38,6 +35,12 @@ public class Dashboard extends Application
             case "Tasks": stage.setScene(ShowTasks.getScene()); break;
 
             case "Messages": stage.setScene(Messages.getScene()); break;
+
+            case "New Task": stage.setScene(NewTask.getScene()); break;
+
+            case "Edit": stage.setScene(EditTask.getScene()); break;
+
+            case "Delete": stage.setScene(DeleteTask.getScene()); break;
         }
         stage.show();
     }
