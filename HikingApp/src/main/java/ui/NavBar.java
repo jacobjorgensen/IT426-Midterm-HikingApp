@@ -16,41 +16,49 @@ import javafx.scene.text.Text;
 public class NavBar
 {
     private String[] buttons = new String[] {"Home", "Hikes", "Tasks", "Messages"};
+    private static final int BUTTON_HEIGHT = 30;
+    private static final int BUTTON_WIDTH = 70;
 
     public HBox getNavBar()
     {
-        BorderPane parentPanel = new BorderPane();
-
         HBox nav = new HBox();
+        nav.setSpacing(10);
 
         //add buttons
-        for (int i = 0; i < buttons.length; i++) {
-            final String buttonText = buttons[i];
-            Button button = new Button(buttons[i]);
-
-            //set handler
-            button.setOnAction(new EventHandler<ActionEvent>()
-            {
-                @Override
-                public void handle(ActionEvent event)
-                {
-                    Dashboard.switchScenes(buttonText);
-                }
-            });
-
+        for (int i = 0; i < buttons.length; i++)
+        {
+            Button button = createButton(buttons[i]);
             nav.getChildren().add(button);
         }
 
-        parentPanel.setTop(nav);
-
-
-        // center the vBox and add some padding
-        nav.setAlignment(Pos.CENTER);
+        nav.setAlignment(Pos.TOP_CENTER);
         nav.setPadding(new Insets(Dashboard.PANEL_PADING));
 
-         // add as many controls as needed
-
         return nav;
+    }
+
+    public static Button createButton(String buttonName)
+    {
+        Button button = new Button();
+
+        button.setText(buttonName);
+        button.setPrefHeight(BUTTON_HEIGHT);
+        button.setPrefWidth(BUTTON_WIDTH);
+
+        button.setStyle("-fx-background-color: #81BEF7;" +
+                "-fx-font-family: 'Lucida Console';" +
+                "-fx-font-size: 10px;");
+
+        button.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent event)
+            {
+                Dashboard.switchScenes(buttonName);
+            }
+        });
+
+        return button;
     }
 
 }

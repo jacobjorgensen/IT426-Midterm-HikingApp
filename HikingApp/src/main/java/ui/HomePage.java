@@ -7,8 +7,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 
@@ -21,26 +20,24 @@ public class HomePage
 
     public static Scene getScene()
     {
-        BorderPane parentPanel = new BorderPane();
-
-        HBox topTitle = new HBox(); //nested panel
-        topTitle.setAlignment(Pos.CENTER);
-        parentPanel.setTop(topTitle);
-        topTitle.setPadding(new Insets(Dashboard.PANEL_PADING));
+        VBox box = new VBox();
+        box.setAlignment(Pos.CENTER);
+        box.setPadding(new Insets(Dashboard.PANEL_PADING));
+        box.setSpacing(10);
 
         title.setStyle("-fx-font-size: 25px;" +
-                        "-fx-font-family: 'Arial Black'");
-        topTitle.getChildren().addAll(title);
+                "-fx-font-family: 'Arial Black'");
+
+        box.getChildren().addAll(title);
 
         for (int i = 0; i < buttons.length; i++)
         {
             Button button = createButton(buttons[i]);
 
-            //parentPanel.setPadding(new Insets(10));
-            parentPanel.setCenter(button);
+            box.getChildren().addAll(button);
         }
 
-        return new Scene(parentPanel, Dashboard.WIN_WIDTH, Dashboard.WIN_HEIGHT);
+        return new Scene(box, Dashboard.WIN_WIDTH, Dashboard.WIN_HEIGHT);
     }
 
     public static Button createButton(String buttonName)
@@ -55,8 +52,6 @@ public class HomePage
                 "-fx-font-family: 'Lucida Console';" +
                 "-fx-font-size: 20px;");
 
-        //button.setPadding(new Insets(10));
-
         button.setOnAction(new EventHandler<ActionEvent>()
         {
             @Override
@@ -66,8 +61,6 @@ public class HomePage
             }
         });
 
-
         return button;
     }
-
 }
