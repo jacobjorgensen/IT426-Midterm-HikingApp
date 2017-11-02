@@ -14,8 +14,6 @@ public class MessageReminder
      */
     public void readMessages()
     {
-        ArrayList<String> messageList = new ArrayList<>();
-
         try (Scanner fileIn = new Scanner(new File("Messages.txt")); ){
 
             String message = null;
