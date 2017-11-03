@@ -20,14 +20,22 @@ public class NewTask
         NavBar nav = new NavBar();
         HBox navBox = nav.getNavBar();
         VBox inputBox = new VBox();
-
-        inputBox.getChildren().add(navBox);
+        Button submit = new Button("Submit");
 
         Label newTask = new Label("Add a New Task:");
         TextField input = new TextField ();
 
-        inputBox.getChildren().addAll(newTask, input);
+        inputBox.setPadding(new Insets(0, 20, 0, 20));
         inputBox.setSpacing(10);
+
+        submit.setPrefHeight(20);
+        submit.setPrefWidth(60);
+        submit.setStyle("-fx-background-color: cadetblue;" +
+                        "-fx-font-family: 'Lucida Console';" +
+                        "-fx-font-size: 10px;");
+
+        inputBox.getChildren().addAll(navBox, newTask, input, submit);
+
 
         return new Scene(inputBox, Dashboard.WIN_WIDTH, Dashboard.WIN_HEIGHT);
     }

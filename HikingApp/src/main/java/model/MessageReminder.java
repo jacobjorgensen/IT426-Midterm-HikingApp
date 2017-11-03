@@ -21,7 +21,7 @@ public class MessageReminder
             while (fileIn.hasNext())
             {
                 message = fileIn.nextLine();
-                messageList.add(message);
+                messages.add(message);
             }
             fileIn.close();
 
