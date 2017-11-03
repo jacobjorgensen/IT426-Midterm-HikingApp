@@ -33,6 +33,14 @@ public class NewTask
         submit.setStyle("-fx-background-color: cadetblue;" +
                         "-fx-font-family: 'Lucida Console';" +
                         "-fx-font-size: 10px;");
+        submit.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent event)
+            {
+
+            }
+        });
 
         inputBox.getChildren().addAll(navBox, newTask, input, submit);
 

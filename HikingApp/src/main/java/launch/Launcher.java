@@ -8,6 +8,7 @@ package launch;
 
 import controller.Dashboard;
 import javafx.application.Application;
+import model.MessageReminder;
 
 
 /**
@@ -26,6 +27,7 @@ public class Launcher
      */
     public static void main(String[] args)
     {
+
         Application.launch(Dashboard.class, args);
     }// end main()
 }// end Launcher.class

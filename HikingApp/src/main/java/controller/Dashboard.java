@@ -4,6 +4,9 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import ui.*;
 
+import java.io.File;
+import java.net.MalformedURLException;
+
 public class Dashboard extends Application
 {
     public static final int WIN_WIDTH = 400;
@@ -20,6 +23,13 @@ public class Dashboard extends Application
 
         // show the waiting screen
         stage.setScene(HomePage.getScene());
+
+        try {
+            HomePage.getScene().getStylesheets().add(new File("styles/styles.css").toURI().toURL().toString());
+        }
+        catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
 
         stage.show();
 
