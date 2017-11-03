@@ -28,7 +28,7 @@ public class HikeLog
     {
         ArrayList<Hike> hikeList = new ArrayList<>();
 
-        try (FileInputStream fileIn = new FileInputStream(new File("Hikes.txt"));
+        try (FileInputStream fileIn = new FileInputStream(new File("files/Hikes.txt"));
              ObjectInputStream objIn = new ObjectInputStream(fileIn)){
 
             // Read Hike objects
@@ -63,7 +63,7 @@ public class HikeLog
     public void writeHikes()
     {
         try {
-            FileOutputStream fileOut = new FileOutputStream(new File("Hikes.txt"));
+            FileOutputStream fileOut = new FileOutputStream(new File("files/Hikes.txt"));
             ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
 
             // Write Hike objects to file

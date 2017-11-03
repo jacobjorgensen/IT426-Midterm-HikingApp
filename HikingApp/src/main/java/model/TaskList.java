@@ -6,49 +6,53 @@ import java.util.Scanner;
 
 public class TaskList
 {
-    private ArrayList<Task> messages;
+    private ArrayList<Task> tasks = new ArrayList<>();
 
     /**
      * Reads message stringd from a file and loads them into an array.
      * @return String[]
      */
-    public void readMessages()
+    public void readTasksFromFile()
     {
-        ArrayList<String> messageList = new ArrayList<>();
+        try (FileInputStream fileIn = new FileInputStream(new File("files/Tasks.txt"));
+             ObjectInputStream objIn = new ObjectInputStream(fileIn)){
 
-        try (Scanner fileIn = new Scanner(new File("Messages.txt")); ){
-
-            String message = null;
-            // Read Messages objects
-            while (fileIn.hasNext())
+            // Read Hike objects
+            while (true)
             {
-                message = fileIn.nextLine();
-                messageList.add(message);
+                Task task = (Task) objIn.readObject();
+
+                tasks.add(task);
             }
-            fileIn.close();
 
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
+        } catch (EOFException e) {
+            System.out.println("This is fine, end of file.");
         } catch (IOException e) {
             System.out.println("Error initializing stream");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
     /**
      * Takes the message strings currently in the array and places them in the file
      */
-    public void writeMessages()
+    public void writeTasksToFile()
     {
         try {
-            PrintWriter writer = new PrintWriter(new FileOutputStream("Messages.txt"));
+            FileOutputStream fileOut = new FileOutputStream(new File("files/Tasks.txt"));
+            ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
 
             // Write Hike objects to file
-            for (int i = 0; i < messages.size(); i++)
+            for (int i = 0; i < tasks.size(); i++)
             {
-                //////// Uncomment
-                //writer.write(messages.get(i));
+                objOut.writeObject(tasks.get(i));
             }
-            writer.close();
+
+            objOut.close();
+            fileOut.close();
 
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
@@ -61,22 +65,22 @@ public class TaskList
      * getter for messages array
      * @return String[] logOfHikes
      */
-    public String[] getLogOfMessages()
+    public String[] getArrayOfTasks()
     {
-        String[] messageArray = new String[messages.size()];
-        messageArray = messages.toArray(new String[0]);
-        return messageArray;
+        String[] tasksArray = new String[tasks.size()];
+        tasksArray = tasks.toArray(new String[0]);
+        return tasksArray;
     }
 
-    public void addMessage(String message)
+    public void addTask(String task)
     {
-        ////// Uncomment
-       // messages.add(message);
-        writeMessages();
+        Task newTask = new Task(task, false);
+        writeTasksToFile();
     }
 
-    public void removeMessage(int index)
+    public void removeTask(int index)
     {
-        messages.remove(index);
+        tasks.remove(index);
+        writeTasksToFile();
     }
 }
