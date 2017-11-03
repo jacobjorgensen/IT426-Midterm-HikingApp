@@ -6,6 +6,8 @@
  */
 package launch;
 
+import controller.Dashboard;
+import javafx.application.Application;
 import model.Hike;
 import model.MessageReminder;
 import model.Task;
@@ -30,8 +32,6 @@ public class Launcher
      */
     public static void main(String[] args)
     {
-        TaskList tasks = new TaskList();
-        tasks.addTask("Grab gear");
-        //Application.launch(Dashboard.class, args);
+        Application.launch(Dashboard.class, args);
     }// end main()
 }// end Launcher.class

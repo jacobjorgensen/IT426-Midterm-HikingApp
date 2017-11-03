@@ -22,6 +22,7 @@ public class TaskList
             {
                 Task task = (Task) objIn.readObject();
 
+
                 tasks.add(task);
             }
 
@@ -65,16 +66,16 @@ public class TaskList
      * getter for messages array
      * @return String[] logOfHikes
      */
-    public String[] getArrayOfTasks()
+    public Task[] getArrayOfTasks()
     {
-        String[] tasksArray = new String[tasks.size()];
-        tasksArray = tasks.toArray(new String[0]);
+        Task[] tasksArray = new Task[tasks.size()];
+        tasksArray = tasks.toArray(new Task[0]);
         return tasksArray;
     }
 
     public void addTask(String task)
     {
-        Task newTask = new Task(task, false);
+        tasks.add(new Task(task, false));
         writeTasksToFile();
     }
 
