@@ -8,30 +8,39 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 
 public class ShowTasks
 {
     private final static int BUTTON_HEIGHT = 10;
     private final static int BUTTON_WIDTH = 100;
+
     public static Scene getScene()
     {
         NavBar nav = new NavBar();
         VBox taskBox = new VBox();
         HBox navBox = nav.getNavBar();
         HBox settings = new HBox();
+        Label title = new Label("Task List");
 
         String[] taskList = {"Find backpack", "Pack food and water", "Compass", "Flashlight", "Binoculars"};
         String[] buttons = {"New Task", "Edit", "Delete"};
         CheckBox[] boxes = new CheckBox[taskList.length];
 
-        navBox.setPadding(new Insets(Dashboard.PANEL_PADING));
-        taskBox.getChildren().addAll(navBox);
+        title.setPadding(new Insets(0, 0, 0, 150));
+        title.setStyle("-fx-font-size: 20px;" +
+                "-fx-font-family: 'Arial Black'");
 
-        settings.setPadding(new Insets(30, 10, 10, 10));
+
+        navBox.setPadding(new Insets(Dashboard.PANEL_PADING));
+        taskBox.getChildren().addAll(navBox, title, settings);
+
+        settings.setPadding(new Insets(0, 10, 0, 10));
         settings.setAlignment(Pos.CENTER);
         taskBox.setSpacing(10);
 
@@ -51,10 +60,6 @@ public class ShowTasks
             settings.getChildren().addAll(taskButton);
 
         }
-
-        taskBox.getChildren().addAll(settings);
-
-
 
         return new Scene(taskBox, Dashboard.WIN_WIDTH, Dashboard.WIN_HEIGHT);
     }
@@ -78,7 +83,10 @@ public class ShowTasks
             @Override
             public void handle(ActionEvent event)
             {
-                Dashboard.switchScenes(buttonName);
+                if (buttonName.equals("New Task"))
+                {
+                    Dashboard.switchScenes(buttonName);
+                }
             }
         });
 

@@ -45,6 +45,7 @@ public class TaskList
             // Write Hike objects to file
             for (int i = 0; i < messages.size(); i++)
             {
+                //////// Uncomment
                 //writer.write(messages.get(i));
             }
             writer.close();
@@ -69,6 +70,7 @@ public class TaskList
 
     public void addMessage(String message)
     {
+        ////// Uncomment
        // messages.add(message);
         writeMessages();
     }
