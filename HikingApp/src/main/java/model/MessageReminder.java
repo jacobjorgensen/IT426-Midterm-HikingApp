@@ -3,7 +3,7 @@ package model;
 import java.io.*;
 import java.util.ArrayList;
 
-public class MessageReminder
+public class MessageReminder implements Serializable
 {
     private ArrayList<String> messages = new ArrayList<>();
 

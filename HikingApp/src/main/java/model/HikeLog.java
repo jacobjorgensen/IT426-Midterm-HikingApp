@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public class HikeLog
 {
-    private Hike[] logOfHikes;
+    private ArrayList<Hike> logOfHikes = new ArrayList<>();
 
     /**
      * Reads Hike objects from a file and loads them into an array.
@@ -51,9 +51,9 @@ public class HikeLog
             e.printStackTrace();
         }
 
-        logOfHikes = hikeList.toArray(new Hike[0]);
+        Hike[] hikes = hikeList.toArray(new Hike[0]);
 
-        return logOfHikes;
+        return hikes;
     }
 
     /**
@@ -67,9 +67,9 @@ public class HikeLog
             ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
 
             // Write Hike objects to file
-            for (int i = 0; i < logOfHikes.length; i++)
+            for (int i = 0; i < logOfHikes.size(); i++)
             {
-                objOut.writeObject(logOfHikes[i]);
+                objOut.writeObject(logOfHikes.get(i));
             }
 
             objOut.close();
@@ -89,6 +89,16 @@ public class HikeLog
      */
     public Hike[] getLogOfHikes()
     {
-        return logOfHikes;
+        return logOfHikes.toArray(new Hike[0]);
+    }
+
+    /**
+     * Adds a hike to the hike log and saves it to the file
+     * @param hike
+     */
+    public void addHike(Hike hike)
+    {
+        logOfHikes.add(hike);
+        writeHikes();
     }
 }

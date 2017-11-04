@@ -6,6 +6,7 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
  * @author Jacob Laqua, Mackenzie Larson, Kenny Still
  * @version 1.0
  */
-public class Hike
+public class Hike implements Serializable
 {
     //fields
     private String location;
