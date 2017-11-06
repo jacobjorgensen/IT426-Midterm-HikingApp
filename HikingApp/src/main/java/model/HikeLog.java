@@ -99,6 +99,7 @@ public class HikeLog
      */
     public void addHike(Hike hike)
     {
+        readHikes();
         logOfHikes.add(hike);
         writeHikes();
     }
