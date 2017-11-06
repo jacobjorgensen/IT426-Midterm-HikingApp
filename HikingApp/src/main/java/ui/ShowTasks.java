@@ -14,11 +14,14 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import model.Task;
+import model.TaskList;
 
 public class ShowTasks
 {
     private final static int BUTTON_HEIGHT = 10;
     private final static int BUTTON_WIDTH = 100;
+    private static TaskList tasks = new TaskList();
 
     public static Scene getScene()
     {
@@ -28,9 +31,9 @@ public class ShowTasks
         HBox settings = new HBox();
         Label title = new Label("Task List");
 
-        String[] taskList = {"Find backpack", "Pack food and water", "Compass", "Flashlight", "Binoculars"};
+        Task[] taskList = tasks.getArrayOfTasks();
         String[] buttons = {"New Task", "Edit", "Delete"};
-        CheckBox[] boxes = new CheckBox[taskList.length];
+        //CheckBox[] boxes = new CheckBox[taskList.length];
 
         title.setPadding(new Insets(0, 0, 0, 150));
         title.setStyle("-fx-font-size: 20px;" +
@@ -47,8 +50,7 @@ public class ShowTasks
         // add checkboxes
         for (int i = 0; i < taskList.length; i++)
         {
-            CheckBox checkBox = new CheckBox(taskList[i]);
-            boxes[i] = checkBox;
+            CheckBox checkBox = new CheckBox(taskList[i].getTask());
             checkBox.setPadding(new Insets(0,0,0, 20));
 
             taskBox.getChildren().addAll(checkBox);
@@ -83,10 +85,7 @@ public class ShowTasks
             @Override
             public void handle(ActionEvent event)
             {
-                if (buttonName.equals("New Task"))
-                {
-                    Dashboard.switchScenes(buttonName);
-                }
+                Dashboard.switchScenes(buttonName);
             }
         });
 

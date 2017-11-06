@@ -12,37 +12,42 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import model.TaskList;
 
 public class NewTask
 {
+    private static TaskList task = new TaskList();
+    private static TextField input = new TextField();
+
     public static Scene getScene()
     {
         NavBar nav = new NavBar();
         HBox navBox = nav.getNavBar();
         VBox inputBox = new VBox();
-        Button submit = new Button("Submit");
+        Button addTask = new Button("Add");
 
         Label newTask = new Label("Add a New Task:");
-        TextField input = new TextField ();
 
         inputBox.setPadding(new Insets(0, 20, 0, 20));
         inputBox.setSpacing(10);
 
-        submit.setPrefHeight(20);
-        submit.setPrefWidth(60);
-        submit.setStyle("-fx-background-color: cadetblue;" +
+        addTask.setPrefHeight(20);
+        addTask.setPrefWidth(60);
+        addTask.setStyle("-fx-background-color: cadetblue;" +
                         "-fx-font-family: 'Lucida Console';" +
                         "-fx-font-size: 10px;");
-        submit.setOnAction(new EventHandler<ActionEvent>()
+
+        addTask.setOnAction(new EventHandler<ActionEvent>()
         {
             @Override
             public void handle(ActionEvent event)
             {
-
+                task.addTask(input.getText());
+                input.setText("");
             }
         });
 
-        inputBox.getChildren().addAll(navBox, newTask, input, submit);
+        inputBox.getChildren().addAll(navBox, newTask, input, addTask);
 
 
         return new Scene(inputBox, Dashboard.WIN_WIDTH, Dashboard.WIN_HEIGHT);

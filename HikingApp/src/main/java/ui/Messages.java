@@ -1,15 +1,21 @@
 package ui;
 
 import controller.Dashboard;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import model.MessageReminder;
 
 public class Messages
 {
+    private static MessageReminder reminders = new MessageReminder();
+
     // Scene which shows messages
     // perhaps a toast type alert
     // if so this class can probably be removed,
@@ -17,16 +23,33 @@ public class Messages
     // However, this would break MVC
     public static Scene getScene()
     {
-        Text text = new Text("Messages Page");
         NavBar nav = new NavBar();
-        HBox box = nav.getNavBar();
+        HBox navBox = nav.getNavBar();
+        VBox messages = new VBox();
+        Label title = new Label("Message Reminders");
 
-        // center the vBox and add some padding
-        //box.setAlignment(Pos.CENTER);
-        box.setPadding(new Insets(Dashboard.PANEL_PADING));
 
-        box.getChildren().addAll(text); // add as many controls as needed
+        title.setPadding(new Insets(0, 0, 0, 90));
+        title.setStyle("-fx-font-size: 20px;" +
+                "-fx-font-family: 'Arial Black'");
 
-        return new Scene(box, Dashboard.WIN_WIDTH, Dashboard.WIN_HEIGHT);
+        navBox.setPadding(new Insets(Dashboard.PANEL_PADING));
+        messages.getChildren().addAll(navBox, title);
+
+        String[] messageReminders =  reminders.getArrayOfMessages();
+
+        for (int i = 0; i < messageReminders.length; i++)
+        {
+            Text msg = new Text(messageReminders[i]);
+            System.out.println(msg);
+            messages.getChildren().add(msg);
+
+        }
+
+        messages.setSpacing(10);
+
+        return new Scene(messages, Dashboard.WIN_WIDTH, Dashboard.WIN_HEIGHT);
     }
+
+
 }

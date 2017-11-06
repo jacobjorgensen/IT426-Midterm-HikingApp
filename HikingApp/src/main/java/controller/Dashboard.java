@@ -24,12 +24,12 @@ public class Dashboard extends Application
         // show the waiting screen
         stage.setScene(HomePage.getScene());
 
-        try {
-            HomePage.getScene().getStylesheets().add(new File("styles/styles.css").toURI().toURL().toString());
-        }
-        catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            HomePage.getScene().getStylesheets().add(new File("styles/styles.css").toURI().toURL().toString());
+//        }
+//        catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        }
 
         stage.show();
 

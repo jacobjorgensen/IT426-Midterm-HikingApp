@@ -18,7 +18,7 @@ public class MessageReminder implements Serializable
             String line = null;
             while ((line = reader.readLine()) != null)
             {
-                messages.add(line);
+                 messages.add(line);
             }
             reader.close();
         } catch (FileNotFoundException e) {
