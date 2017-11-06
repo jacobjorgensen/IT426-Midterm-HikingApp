@@ -17,6 +17,7 @@ public class TaskList implements Serializable
         try (FileInputStream fileIn = new FileInputStream(new File("files/Tasks.txt"));
              ObjectInputStream objIn = new ObjectInputStream(fileIn)){
 
+            tasks.clear();
             // Read Hike objects
             while (true)
             {
@@ -68,26 +69,28 @@ public class TaskList implements Serializable
      */
     public Task[] getArrayOfTasks()
     {
-        Task[] tasksArray = new Task[tasks.size()];
-        tasksArray = tasks.toArray(new Task[0]);
-        return tasksArray;
+        readTasksFromFile();
+        return tasks.toArray(new Task[0]);
     }
 
     public void addTask(String task)
     {
+        readTasksFromFile();
         tasks.add(new Task(task, false));
         writeTasksToFile();
     }
 
-//    public void removeTask(int index)
-//    {
-//        tasks.remove(index);
-//        writeTasksToFile();
-//    }
-
     public void removeTask(String task)
     {
-        tasks.remove(task);
+        readTasksFromFile();
+        for (int i = 0; i < tasks.size(); i++)
+        {
+            if (tasks.get(i).getTask().equals(task))
+            {
+                tasks.remove(i);
+                System.out.println(i);
+            }
+        }
         writeTasksToFile();
     }
 }

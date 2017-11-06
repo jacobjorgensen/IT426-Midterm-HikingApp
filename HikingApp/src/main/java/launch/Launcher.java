@@ -9,8 +9,6 @@ package launch;
 import controller.Dashboard;
 import javafx.application.Application;
 
-
-
 /**
  * This class is the entry point for the program. The main method
  * handles user input accordingly
