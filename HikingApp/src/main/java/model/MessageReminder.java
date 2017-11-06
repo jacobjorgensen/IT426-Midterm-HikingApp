@@ -15,6 +15,7 @@ public class MessageReminder implements Serializable
     {
         try (BufferedReader reader = new BufferedReader(new FileReader("files/Messages.txt")))
         {
+            messages.clear();
             String line = null;
             while ((line = reader.readLine()) != null)
             {
@@ -59,20 +60,26 @@ public class MessageReminder implements Serializable
     public String[] getArrayOfMessages()
     {
         readMessagesFromFile();
-        String[] messageArray = new String[messages.size()];
-        messageArray = messages.toArray(new String[0]);
-        return messageArray;
+        return messages.toArray(new String[0]);
     }
 
     public void addMessage(String message)
     {
+        readMessagesFromFile();
         messages.add(message);
         writeMessagesToFile();
     }
 
-    public void removeMessage(int index)
+    public void removeMessage(String message)
     {
-        messages.remove(index);
+
+        for (int i = 0; i < messages.size(); i++)
+        {
+            if (messages.get(i).equals(message))
+            {
+                messages.remove(i);
+            }
+        }
         writeMessagesToFile();
     }
 }

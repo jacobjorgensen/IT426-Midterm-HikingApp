@@ -40,13 +40,14 @@ public class Messages
 
         navBox.setPadding(new Insets(Dashboard.PANEL_PADING));
 
+        messages.getChildren().addAll(navBox, title, settings);
+        messages.setSpacing(10);
 
         String[] messageReminders =  reminders.getArrayOfMessages();
 
         for (int i = 0; i < messageReminders.length; i++)
         {
             Text msg = new Text(messageReminders[i]);
-            System.out.println(msg);
             messages.getChildren().add(msg);
 
         }
@@ -59,9 +60,6 @@ public class Messages
             Button msgButton = createButton(buttons[i]);
             settings.getChildren().addAll(msgButton);
         }
-
-        messages.getChildren().addAll(navBox, title, settings);
-        messages.setSpacing(10);
 
         return new Scene(messages, Dashboard.WIN_WIDTH, Dashboard.WIN_HEIGHT);
     }

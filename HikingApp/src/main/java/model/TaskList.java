@@ -2,7 +2,6 @@ package model;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class TaskList implements Serializable
 {
@@ -88,8 +87,20 @@ public class TaskList implements Serializable
             if (tasks.get(i).getTask().equals(task))
             {
                 tasks.remove(i);
-                System.out.println(i);
             }
+        }
+        writeTasksToFile();
+    }
+
+    /**
+     * This method resets the list of tasks to unchecked
+     */
+    public void resetTasksToUnchecked()
+    {
+        readTasksFromFile();
+        for (int i = 0; i < tasks.size(); i++)
+        {
+            tasks.get(i).setChecked(false);
         }
         writeTasksToFile();
     }
