@@ -32,7 +32,7 @@ public class ShowTasks
         Label title = new Label("Task List");
 
         Task[] taskList = tasks.getArrayOfTasks();
-        String[] buttons = {"New Task", "Edit", "Delete"};
+        String[] buttons = {"Add Task", "Edit", "Delete"};
         //CheckBox[] boxes = new CheckBox[taskList.length];
 
         title.setPadding(new Insets(0, 0, 0, 150));
