@@ -103,4 +103,21 @@ public class HikeLog
         logOfHikes.add(hike);
         writeHikes();
     }
+
+    /**
+     * Gets the names of all hikes you've been on.
+     * @return String[] hikeNames
+     */
+    public String[] getHikeNames()
+    {
+        readHikes();
+        String[] hikeNames = new String[logOfHikes.size()];
+
+        for (int i = 0; i < hikeNames.length; i++)
+        {
+            hikeNames[i] = logOfHikes.get(i).getHikeName();
+        }
+
+        return hikeNames;
+    }
 }
