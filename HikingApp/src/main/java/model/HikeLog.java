@@ -51,9 +51,9 @@ public class HikeLog
             e.printStackTrace();
         }
 
-        Hike[] hikes = hikeList.toArray(new Hike[0]);
+        logOfHikes = hikeList;
 
-        return hikes;
+        return hikeList.toArray(new Hike[0]);
     }
 
     /**
@@ -87,8 +87,9 @@ public class HikeLog
      * getter for logOfHikes
      * @return Hike[] logOfHikes
      */
-    public Hike[] getLogOfHikes()
+    public Hike[] getArrayOfHikes()
     {
+        readHikes();
         return logOfHikes.toArray(new Hike[0]);
     }
 
@@ -98,6 +99,7 @@ public class HikeLog
      */
     public void addHike(Hike hike)
     {
+        readHikes();
         logOfHikes.add(hike);
         writeHikes();
     }
