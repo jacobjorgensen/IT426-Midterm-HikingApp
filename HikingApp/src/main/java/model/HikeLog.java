@@ -87,7 +87,7 @@ public class HikeLog
      * getter for logOfHikes
      * @return Hike[] logOfHikes
      */
-    public Hike[] getLogOfHikes()
+    public Hike[] getArrayOfHikes()
     {
         return logOfHikes.toArray(new Hike[0]);
     }
