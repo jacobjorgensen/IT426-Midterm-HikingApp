@@ -58,6 +58,7 @@ public class MessageReminder implements Serializable
      */
     public String[] getArrayOfMessages()
     {
+        readMessagesFromFile();
         String[] messageArray = new String[messages.size()];
         messageArray = messages.toArray(new String[0]);
         return messageArray;
