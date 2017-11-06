@@ -24,12 +24,12 @@ public class Dashboard extends Application
         // show the waiting screen
         stage.setScene(HomePage.getScene());
 
-        try {
-            HomePage.getScene().getStylesheets().add(new File("styles/styles.css").toURI().toURL().toString());
-        }
-        catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            HomePage.getScene().getStylesheets().add(new File("styles/styles.css").toURI().toURL().toString());
+//        }
+//        catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        }
 
         stage.show();
 
@@ -46,11 +46,13 @@ public class Dashboard extends Application
 
             case "Messages": stage.setScene(Messages.getScene()); break;
 
-            case "New Task": stage.setScene(NewTask.getScene()); break;
+            case "Add Task": stage.setScene(NewTask.getScene()); break;
 
             case "Edit": stage.setScene(EditTask.getScene()); break;
 
             case "Delete": stage.setScene(DeleteTask.getScene()); break;
+
+            case "Add Reminder": stage.setScene(AddMessage.getScene()); break;
         }
         stage.show();
     }

@@ -79,9 +79,15 @@ public class TaskList implements Serializable
         writeTasksToFile();
     }
 
-    public void removeTask(int index)
+//    public void removeTask(int index)
+//    {
+//        tasks.remove(index);
+//        writeTasksToFile();
+//    }
+
+    public void removeTask(String task)
     {
-        tasks.remove(index);
+        tasks.remove(task);
         writeTasksToFile();
     }
 }
