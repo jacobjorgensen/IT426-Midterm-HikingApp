@@ -14,12 +14,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import model.Hike;
 import model.HikeLog;
-import model.Task;
-import model.TaskList;
-
-import java.time.LocalDate;
 
 public class ShowHikes
 {
@@ -37,11 +34,12 @@ public class ShowHikes
         Label title = new Label("Hike List");
 
         Hike[] hikes = hikeLog.getArrayOfHikes();
-        String[] buttons = {"Add Hike", "Edit Hike"};
+        String[] buttons = {"Add Hike"};
 
         title.setPadding(new Insets(0, 0, 0, 150));
         title.setStyle("-fx-font-size: 20px;" +
                 "-fx-font-family: 'Arial Black'");
+
 
 
         navBox.setPadding(new Insets(Dashboard.PANEL_PADING));
@@ -54,8 +52,23 @@ public class ShowHikes
         // add checkboxes
         for (int i = 0; i < hikes.length; i++)
         {
+            final Hike hike = hikes[i];
+            Button msg = new Button((hikes[i].getHikeName() + ", at " + hikes[i].getLocation()));
+            msg.setAlignment(Pos.CENTER);
+            msg.setStyle("-fx-background-color: transparent;" +
+                    "-fx-font-family: 'Lucida Console';" +
+                    "-fx-font-size: 15px;" +
+                    "-fx-text-fill: darkgreen");
 
-            Text msg = new Text(hikes[i].getHikeName() + " " + hikes[i].getEndTime());
+            msg.setOnAction(new EventHandler<ActionEvent>()
+            {
+                @Override
+                public void handle(ActionEvent event)
+                {
+                    Dashboard dash = new Dashboard();
+                    dash.stage.setScene(EditHike.getScene(hike));
+                }
+            });
 
             hikeBox.getChildren().add(msg);
         }

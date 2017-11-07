@@ -12,6 +12,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+import model.Hike;
 import model.Task;
 import model.TaskList;
 
@@ -47,15 +50,16 @@ public class ShowTasks
         for (int i = 0; i < taskList.length; i++)
         {
             CheckBox checkBox = new CheckBox(taskList[i].getTask());
+            checkBox.setSelected(taskList[i].isChecked());
             checkBox.setPadding(new Insets(0,0,0, 20));
+            final String task = taskList[i].getTask();
 
             checkBox.setOnAction(new EventHandler<ActionEvent>()
             {
                 @Override
                 public void handle(ActionEvent event)
                 {
-                    Task task = new Task(checkBox.getText(), true);
-                    task.setChecked(true);
+                    tasks.changeChecked(task);
                 }
             });
 
@@ -96,6 +100,7 @@ public class ShowTasks
                 if (buttonName.equals("Reset Checks"))
                 {
                     tasks.resetTasksToUnchecked();
+                    Dashboard.switchScenes("Tasks");
                 }
                 else
                 {

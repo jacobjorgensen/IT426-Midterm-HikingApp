@@ -10,10 +10,10 @@ import java.net.MalformedURLException;
 public class Dashboard extends Application
 {
     public static final int WIN_WIDTH = 400;
-    public static final int WIN_HEIGHT = 400;
+    public static final int WIN_HEIGHT = 600;
     public static final int PANEL_PADING = 10;
     private static final int FONT_SIZE = 24;
-    private static Stage stage;
+    public static Stage stage;
 
     @Override
     public void start(Stage stage)
@@ -36,8 +36,6 @@ public class Dashboard extends Application
             case "Hikes": stage.setScene(ShowHikes.getScene()); break;
 
             case "Add Hike": stage.setScene(AddHike.getScene()); break;
-
-            case "Edit Hike": stage.setScene(EditHike.getScene()); break;
 
             case "Tasks": stage.setScene(ShowTasks.getScene()); break;
 

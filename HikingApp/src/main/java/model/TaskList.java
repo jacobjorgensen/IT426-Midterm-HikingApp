@@ -17,7 +17,7 @@ public class TaskList implements Serializable
              ObjectInputStream objIn = new ObjectInputStream(fileIn)){
 
             tasks.clear();
-            // Read Hike objects
+            // Read task objects
             while (true)
             {
                 Task task = (Task) objIn.readObject();
@@ -103,6 +103,26 @@ public class TaskList implements Serializable
             tasks.get(i).setChecked(false);
         }
 
+        writeTasksToFile();
+    }
+
+    public void changeChecked(String task)
+    {
+        readTasksFromFile();
+        for (int i = 0; i < tasks.size(); i++)
+        {
+            if (task.equals(tasks.get(i).getTask()))
+            {
+                if(tasks.get(i).isChecked())
+                {
+                    tasks.get(i).setChecked(false);
+                }
+                else
+                {
+                    tasks.get(i).setChecked(true);
+                }
+            }
+        }
         writeTasksToFile();
     }
 }

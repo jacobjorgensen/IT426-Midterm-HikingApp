@@ -2,6 +2,7 @@ package model;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MessageReminder implements Serializable
 {
@@ -80,7 +81,13 @@ public class MessageReminder implements Serializable
                 messages.remove(i);
             }
         }
-
         writeMessagesToFile();
+    }
+
+    public String getRandomMessage()
+    {
+        readMessagesFromFile();
+        Random random = new Random();
+        return messages.get(random.nextInt(messages.size()));
     }
 }
