@@ -22,7 +22,6 @@ public class TaskList implements Serializable
             {
                 Task task = (Task) objIn.readObject();
 
-
                 tasks.add(task);
             }
 

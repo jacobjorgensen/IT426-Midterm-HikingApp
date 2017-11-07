@@ -11,13 +11,14 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import model.MessageReminder;
 
 public class Messages
 {
     private static MessageReminder reminders = new MessageReminder();
     private final static int BUTTON_HEIGHT = 10;
-    private final static int BUTTON_WIDTH = 100;
+    private final static int BUTTON_WIDTH = 120;
 
     // Scene which shows messages
     // perhaps a toast type alert
@@ -31,7 +32,7 @@ public class Messages
         VBox messages = new VBox();
         HBox settings = new HBox();
         Label title = new Label("Message Reminders");
-        String[] buttons = {"Add Reminder", "Edit", "Delete"};
+        String[] buttons = {"Add Reminder", "Delete Reminder"};
 
 
         title.setPadding(new Insets(0, 0, 0, 90));
@@ -41,13 +42,14 @@ public class Messages
         navBox.setPadding(new Insets(Dashboard.PANEL_PADING));
 
         messages.getChildren().addAll(navBox, title, settings);
-        messages.setSpacing(10);
+
 
         String[] messageReminders =  reminders.getArrayOfMessages();
 
         for (int i = 0; i < messageReminders.length; i++)
         {
             Text msg = new Text(messageReminders[i]);
+
             messages.getChildren().add(msg);
 
         }

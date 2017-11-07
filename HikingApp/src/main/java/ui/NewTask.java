@@ -12,12 +12,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import model.TaskList;
 
 public class NewTask
 {
     private static TaskList task = new TaskList();
     private static TextField input = new TextField();
+    private static Text confirm;
 
     public static Scene getScene()
     {
@@ -43,7 +45,9 @@ public class NewTask
             public void handle(ActionEvent event)
             {
                 task.addTask(input.getText());
+                confirm = new Text("'" + input.getText() + "'" + " has been added as a task.");
                 input.setText("");
+                inputBox.getChildren().add(confirm);
             }
         });
 

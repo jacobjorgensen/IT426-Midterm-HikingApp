@@ -10,12 +10,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import model.TaskList;
 
 public class DeleteTask
 {
     private static TaskList task = new TaskList();
     private static TextField input = new TextField();
+    private static Text confirm;
 
     public static Scene getScene()
     {
@@ -42,7 +44,9 @@ public class DeleteTask
             public void handle(ActionEvent event)
             {
                 task.removeTask(input.getText());
+                confirm = new Text("'" + input.getText() + "'" + " has been deleted from the task list.");
                 input.setText("");
+                inputBox.getChildren().add(confirm);
             }
         });
 

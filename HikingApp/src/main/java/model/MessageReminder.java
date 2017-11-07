@@ -72,7 +72,7 @@ public class MessageReminder implements Serializable
 
     public void removeMessage(String message)
     {
-
+        readMessagesFromFile();
         for (int i = 0; i < messages.size(); i++)
         {
             if (messages.get(i).equals(message))
@@ -80,6 +80,7 @@ public class MessageReminder implements Serializable
                 messages.remove(i);
             }
         }
+
         writeMessagesToFile();
     }
 }

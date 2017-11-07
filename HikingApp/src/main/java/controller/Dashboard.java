@@ -48,11 +48,11 @@ public class Dashboard extends Application
 
             case "Add Task": stage.setScene(NewTask.getScene()); break;
 
-            case "Edit": stage.setScene(EditTask.getScene()); break;
-
-            case "Delete": stage.setScene(DeleteTask.getScene()); break;
+            case "Delete Task": stage.setScene(DeleteTask.getScene()); break;
 
             case "Add Reminder": stage.setScene(AddMessage.getScene()); break;
+
+            case "Delete Reminder": stage.setScene(DeleteMessage.getScene()); break;
         }
         stage.show();
     }
