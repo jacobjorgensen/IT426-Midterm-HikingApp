@@ -43,13 +43,12 @@ public class Messages
 
         messages.getChildren().addAll(navBox, title, settings);
 
-
         String[] messageReminders =  reminders.getArrayOfMessages();
 
         for (int i = 0; i < messageReminders.length; i++)
         {
-            Text msg = new Text(messageReminders[i]);
-
+            Label msg = new Label(messageReminders[i]);
+            msg.setPadding(new Insets(10,0,0, 40));
             messages.getChildren().add(msg);
 
         }
