@@ -23,7 +23,6 @@ public class ShowTasks
     private final static int BUTTON_WIDTH = 120;
     private static TaskList tasks = new TaskList();
 
-
     public static Scene getScene()
     {
         NavBar nav = new NavBar();
@@ -31,15 +30,13 @@ public class ShowTasks
         HBox navBox = nav.getNavBar();
         HBox settings = new HBox();
         Label title = new Label("Task List");
-        Button reset = createButton("Reset Tasks");
 
         Task[] taskList = tasks.getArrayOfTasks();
-        String[] buttons = {"Add Task", "Edit", "Delete Task"};
+        String[] buttons = {"Add Task", "Delete Task", "Reset Checks"};
 
         title.setPadding(new Insets(0, 0, 0, 150));
         title.setStyle("-fx-font-size: 20px;" +
                 "-fx-font-family: 'Arial Black'");
-
 
         navBox.setPadding(new Insets(Dashboard.PANEL_PADING));
         taskBox.getChildren().addAll(navBox, title, settings);
@@ -55,14 +52,14 @@ public class ShowTasks
             checkBox.setPadding(new Insets(0,0,0, 20));
 
             checkBox.setOnAction(new EventHandler<ActionEvent>()
-        {
-            @Override
-            public void handle(ActionEvent event)
             {
-                Task task = new Task(checkBox.getText(), true);
-                task.setChecked(true);
-            }
-        });
+                @Override
+                public void handle(ActionEvent event)
+                {
+                    Task task = new Task(checkBox.getText(), true);
+                    task.setChecked(true);
+                }
+            });
 
             taskBox.getChildren().addAll(checkBox);
         }
@@ -72,6 +69,8 @@ public class ShowTasks
             Button taskButton = createButton(buttons[i]);
             settings.getChildren().addAll(taskButton);
         }
+
+
 
         return new Scene(taskBox, Dashboard.WIN_WIDTH, Dashboard.WIN_HEIGHT);
     }
@@ -95,7 +94,15 @@ public class ShowTasks
             @Override
             public void handle(ActionEvent event)
             {
-                Dashboard.switchScenes(buttonName);
+
+                if (buttonName.equals("Reset Checks"))
+                {
+                    tasks.resetTasksToUnchecked();
+                }
+                else
+                {
+                    Dashboard.switchScenes(buttonName);
+                }
             }
         });
 
