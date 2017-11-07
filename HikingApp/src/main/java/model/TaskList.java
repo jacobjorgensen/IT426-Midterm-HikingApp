@@ -88,6 +88,7 @@ public class TaskList implements Serializable
                 tasks.remove(i);
             }
         }
+
         writeTasksToFile();
     }
 
@@ -101,6 +102,7 @@ public class TaskList implements Serializable
         {
             tasks.get(i).setChecked(false);
         }
+
         writeTasksToFile();
     }
 }

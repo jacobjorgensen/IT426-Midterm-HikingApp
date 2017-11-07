@@ -10,8 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import model.MessageReminder;
 
 public class Messages
@@ -34,7 +32,6 @@ public class Messages
         Label title = new Label("Message Reminders");
         String[] buttons = {"Add Reminder", "Delete Reminder"};
 
-
         title.setPadding(new Insets(0, 0, 0, 90));
         title.setStyle("-fx-font-size: 20px;" +
                 "-fx-font-family: 'Arial Black'");
@@ -50,7 +47,6 @@ public class Messages
             Label msg = new Label(messageReminders[i]);
             msg.setPadding(new Insets(10,0,0, 40));
             messages.getChildren().add(msg);
-
         }
 
         settings.setPadding(new Insets(0, 10, 0, 10));
