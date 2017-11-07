@@ -120,4 +120,24 @@ public class HikeLog
 
         return hikeNames;
     }
+
+    public void updateHike(int ID, Hike hike)
+    {
+        readHikes();
+        for (int i = 0; i < logOfHikes.size(); i++)
+        {
+            if(logOfHikes.get(i).getID() == ID)
+            {
+                logOfHikes.set(i, hike);
+            }
+        }
+
+        writeHikes();
+    }
+
+    public int getNumberOfHikes()
+    {
+        readHikes();
+        return logOfHikes.size();
+    }
 }

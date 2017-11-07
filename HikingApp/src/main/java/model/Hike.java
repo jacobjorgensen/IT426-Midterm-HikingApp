@@ -18,6 +18,7 @@ import java.time.LocalDate;
 public class Hike implements Serializable
 {
     //fields
+    private int ID;
     private String location;
     private String hikeName;
     private LocalDate startTime;
@@ -27,6 +28,7 @@ public class Hike implements Serializable
 
     /**
      * Construtor for the Hike class
+     * @param ID : Incremented ID for each hike
      * @param location : Location of the Hike
      * @param hikeName : Name of the Hike
      * @param startTime : Time to start hike
@@ -34,15 +36,34 @@ public class Hike implements Serializable
      * @param steps : steps taken during hike
      * @param avgHeartRate : average heart rate during hike
      */
-    public Hike(String location, String hikeName, LocalDate startTime,
+    public Hike(int ID, String location, String hikeName, LocalDate startTime,
                 LocalDate endTime, int steps, int avgHeartRate)
     {
+        this.ID = ID;
         this.location = location;
         this.hikeName = hikeName;
         this.startTime = startTime;
         this.endTime = endTime;
         this.steps = steps;
         this.avgHeartRate = avgHeartRate;
+    }
+
+    /**
+     * Getter for ID
+     * @return int ID
+     */
+    public int getID()
+    {
+        return ID;
+    }
+
+    /**
+     * Setter for ID
+     * @param ID : ID for a hike
+     */
+    public void setID(int ID)
+    {
+        this.ID = ID;
     }
 
     /**

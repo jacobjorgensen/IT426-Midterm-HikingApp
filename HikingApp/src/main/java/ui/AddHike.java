@@ -11,6 +11,8 @@ import javafx.scene.layout.VBox;
 import model.Hike;
 import model.HikeLog;
 
+import java.time.LocalDate;
+
 public class AddHike
 {
     private static HikeLog hikes = new HikeLog();
@@ -31,16 +33,16 @@ public class AddHike
         TextField nameInput = new TextField();
 
         Label start = new Label("Start Time");
-        DatePicker startInput = new DatePicker();
+        DatePicker startInput = new DatePicker(LocalDate.now());
 
         Label end = new Label("End Time");
-        DatePicker endInput = new DatePicker();
+        DatePicker endInput = new DatePicker(LocalDate.now());
 
         Label steps = new Label("Steps");
-        TextField stepsInput = new TextField();
+        TextField stepsInput = new TextField("0");
 
         Label heart = new Label("Avg. Heart Rate");
-        TextField heartInput = new TextField();
+        TextField heartInput = new TextField("0");
 
         inputBox.setPadding(new Insets(0, 20, 0, 20));
         inputBox.setSpacing(10);
@@ -57,7 +59,7 @@ public class AddHike
             @Override
             public void handle(ActionEvent event)
             {
-                Hike hike = new Hike(locationInput.getText(), nameInput.getText(),
+                Hike hike = new Hike(hikes.getNumberOfHikes(), locationInput.getText(), nameInput.getText(),
                         startInput.getValue(), endInput.getValue(), Integer.parseInt(stepsInput.getText()),
                         Integer.parseInt(heartInput.getText()));
                 hikes.addHike(hike);

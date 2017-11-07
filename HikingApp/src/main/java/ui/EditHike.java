@@ -60,14 +60,13 @@ public class EditHike
             @Override
             public void handle(ActionEvent event)
             {
-                Hike hike = new Hike(locationInput.getText(), nameInput.getText(),
-                        startInput.getValue(), endInput.getValue(), Integer.parseInt(stepsInput.getText()),
-                        Integer.parseInt(heartInput.getText()));
-                hikes.addHike(hike);
-                locationInput.setText("");
-                nameInput.setText("");
-                stepsInput.setText("");
-                heartInput.setText("");
+                hike.setLocation(locationInput.getText());
+                hike.setHikeName(nameInput.getText());
+                hike.setStartTime(startInput.getValue());
+                hike.setEndTime(endInput.getValue());
+                hike.setSteps(Integer.parseInt(stepsInput.getText()));
+                hike.setAvgHeartRate(Integer.parseInt(heartInput.getText()));
+                hikes.updateHike(hike.getID(), hike);
             }
         });
 
