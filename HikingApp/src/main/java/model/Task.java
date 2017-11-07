@@ -32,6 +32,7 @@ public class Task implements Serializable
     {
         this.checked = checked;
     }
+
 }
 
 

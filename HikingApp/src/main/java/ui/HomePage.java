@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import model.MessageReminder;
 
 
 public class HomePage
@@ -20,6 +21,7 @@ public class HomePage
 
     public static Scene getScene()
     {
+        MessageReminder messages = new MessageReminder();
         VBox box = new VBox();
         box.setAlignment(Pos.CENTER);
         box.setPadding(new Insets(Dashboard.PANEL_PADING));
