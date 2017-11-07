@@ -19,6 +19,8 @@ import model.HikeLog;
 import model.Task;
 import model.TaskList;
 
+import java.time.LocalDate;
+
 public class ShowHikes
 {
     private final static int BUTTON_HEIGHT = 10;
@@ -32,7 +34,7 @@ public class ShowHikes
         VBox hikeBox = new VBox();
         HBox navBox = nav.getNavBar();
         HBox settings = new HBox();
-        Label title = new Label("Hike Log");
+        Label title = new Label("Hike List");
 
         Hike[] hikes = hikeLog.getArrayOfHikes();
         String[] buttons = {"Add Hike", "Edit Hike"};
@@ -52,20 +54,10 @@ public class ShowHikes
         // add checkboxes
         for (int i = 0; i < hikes.length; i++)
         {
-            Text msg = new Text(hikes[i].getHikeName());
+
+            Text msg = new Text(hikes[i].getHikeName() + " " + hikes[i].getEndTime());
 
             hikeBox.getChildren().add(msg);
-
-            msg.setOnMouseClicked(new EventHandler<MouseEvent>()
-            {
-                @Override
-                public void handle(MouseEvent event)
-                {
-
-                }
-            });
-
-            hikeBox.getChildren().addAll(msg);
         }
 
         for (int i = 0; i < buttons.length; i++)
@@ -96,7 +88,6 @@ public class ShowHikes
             @Override
             public void handle(ActionEvent event)
             {
-                System.out.println(buttonName);
                 Dashboard.switchScenes(buttonName);
             }
         });
