@@ -24,20 +24,13 @@ public class Dashboard extends Application
         // show the waiting screen
         stage.setScene(HomePage.getScene());
 
-//        try {
-//            HomePage.getScene().getStylesheets().add(new File("styles/styles.css").toURI().toURL().toString());
-//        }
-//        catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        }
-
         stage.show();
-
     }
 
     public static void switchScenes(String buttonName)
     {
-        switch (buttonName) {
+        switch (buttonName)
+        {
             case "Home": stage.setScene(HomePage.getScene()); break;
 
             case "Hikes": stage.setScene(ShowHikes.getScene()); break;
@@ -58,11 +51,7 @@ public class Dashboard extends Application
 
             case "Delete Reminder": stage.setScene(DeleteMessage.getScene()); break;
         }
+
         stage.show();
     }
-
-
-
-
-
 }
