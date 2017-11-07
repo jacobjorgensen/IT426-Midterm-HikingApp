@@ -7,7 +7,7 @@
 package model;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 /**
  * This class stores all of the information relating to a hike.
@@ -20,12 +20,10 @@ public class Hike implements Serializable
     //fields
     private String location;
     private String hikeName;
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
+    private LocalDate startTime;
+    private LocalDate endTime;
     private int steps;
     private int avgHeartRate;
-    private TaskList tasks;
-    private MessageReminder reminders;
 
     /**
      * Construtor for the Hike class
@@ -36,8 +34,8 @@ public class Hike implements Serializable
      * @param steps : steps taken during hike
      * @param avgHeartRate : average heart rate during hike
      */
-    public Hike(String location, String hikeName, LocalDateTime startTime,
-                LocalDateTime endTime, int steps, int avgHeartRate)
+    public Hike(String location, String hikeName, LocalDate startTime,
+                LocalDate endTime, int steps, int avgHeartRate)
     {
         this.location = location;
         this.hikeName = hikeName;
@@ -45,8 +43,6 @@ public class Hike implements Serializable
         this.endTime = endTime;
         this.steps = steps;
         this.avgHeartRate = avgHeartRate;
-        this.tasks = new TaskList();
-        this.reminders = new MessageReminder();
     }
 
     /**
@@ -89,7 +85,7 @@ public class Hike implements Serializable
      * getter for startTime
      * @return LocalDateTime startTime
      */
-    public LocalDateTime getStartTime()
+    public LocalDate getStartTime()
     {
         return startTime;
     }
@@ -98,7 +94,7 @@ public class Hike implements Serializable
      * setter for startTime
      * @param startTime : Time to start hike
      */
-    public void setStartTime(LocalDateTime startTime)
+    public void setStartTime(LocalDate startTime)
     {
         this.startTime = startTime;
     }
@@ -107,7 +103,7 @@ public class Hike implements Serializable
      * getter for endTime
      * @return LocalDateTime endTime
      */
-    public LocalDateTime getEndTime()
+    public LocalDate getEndTime()
     {
         return endTime;
     }
@@ -116,7 +112,7 @@ public class Hike implements Serializable
      * setter for endTime
      * @param endTime : Time to end hike
      */
-    public void setEndTime(LocalDateTime endTime)
+    public void setEndTime(LocalDate endTime)
     {
         this.endTime = endTime;
     }
@@ -155,41 +151,5 @@ public class Hike implements Serializable
     public void setAvgHeartRate(int avgHeartRate)
     {
         this.avgHeartRate = avgHeartRate;
-    }
-
-    /**
-     * getter for tasks
-     * @return TaskList tasks
-     */
-    public TaskList getTasks()
-    {
-        return tasks;
-    }
-
-    /**
-     * setter for tasks
-     * @param tasks : Tasks to complete before the hike
-     */
-    public void setTasks(TaskList tasks)
-    {
-        this.tasks = tasks;
-    }
-
-    /**
-     * getter for reminders
-     * @return MessageReminder reminders
-     */
-    public MessageReminder getReminders()
-    {
-        return reminders;
-    }
-
-    /**
-     * setter for reminders
-     * @param reminders : reminders about the hike
-     */
-    public void setReminders(MessageReminder reminders)
-    {
-        this.reminders = reminders;
     }
 }
