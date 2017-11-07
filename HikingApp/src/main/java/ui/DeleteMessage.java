@@ -44,6 +44,7 @@ public class DeleteMessage
             {
                 message.removeMessage(input.getText());
                 confirm = new Text("'" + input.getText() + "'" + " has been deleted from your reminders.");
+                confirm.setWrappingWidth(350);
                 input.setText("");
                 inputBox.getChildren().add(confirm);
             }

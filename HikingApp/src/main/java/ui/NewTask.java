@@ -44,6 +44,7 @@ public class NewTask
             {
                 task.addTask(input.getText());
                 confirm = new Text("'" + input.getText() + "'" + " has been added as a task.");
+                confirm.setWrappingWidth(350);
                 input.setText("");
                 inputBox.getChildren().add(confirm);
             }

@@ -45,6 +45,7 @@ public class DeleteTask
             {
                 task.removeTask(input.getText());
                 confirm = new Text("'" + input.getText() + "'" + " has been deleted from the task list.");
+                confirm.setWrappingWidth(350);
                 input.setText("");
                 inputBox.getChildren().add(confirm);
             }

@@ -46,6 +46,7 @@ public class AddMessage
             {
                 message.addMessage(input.getText());
                 confirm = new Text("'" + input.getText() + "'" + " has been added as a reminder.");
+                confirm.setWrappingWidth(350);
                 input.setText("");
                 inputBox.getChildren().add(confirm);
             }

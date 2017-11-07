@@ -41,18 +41,17 @@ public class HomePage
             box.getChildren().addAll(button);
         }
 
-        randomReminder.setStyle("-fx-text-fill: indigo;" +
-                "-fx-font-family: 'Franklin Gothic Book';" +
-                "-fx-font-size: 22px;" +
-                "-fx-border-color: aqua;");
+        randomReminder.setStyle("-fx-text-fill: cadetblue;" +
+                "-fx-font-family: 'Franklin Gothic Medium';" +
+                "-fx-font-size: 22px;");
 
         randomReminder.setAlignment(Pos.CENTER);
         randomReminder.setPrefWidth(300);
         randomReminder.setWrapText(true);
-        randomReminder.setPadding(new Insets(10));
 
         remindText.setStyle("-fx-font-family: 'Franklin Gothic Book';" +
                 "-fx-font-size: 15px");
+        remindText.setPadding(new Insets(20, 0, 0 ,0));
 
         box.getChildren().addAll(remindText, randomReminder);
 
