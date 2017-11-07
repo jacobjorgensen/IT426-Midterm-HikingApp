@@ -11,7 +11,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import model.MessageReminder;
 
-
 public class HomePage
 {
     private static Text title = new Text("Hello, Jose!");

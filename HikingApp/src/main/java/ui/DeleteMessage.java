@@ -51,7 +51,6 @@ public class DeleteMessage
 
         inputBox.getChildren().addAll(navBox, newMessage, input, deleteMessage);
 
-
         return new Scene(inputBox, Dashboard.WIN_WIDTH, Dashboard.WIN_HEIGHT);
     }
 }

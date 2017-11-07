@@ -52,7 +52,6 @@ public class DeleteTask
 
         inputBox.getChildren().addAll(navBox, newTask, input, deleteTask);
 
-
         return new Scene(inputBox, Dashboard.WIN_WIDTH, Dashboard.WIN_HEIGHT);
     }
 }
