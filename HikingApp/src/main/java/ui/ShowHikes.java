@@ -19,6 +19,8 @@ import model.HikeLog;
 import model.Task;
 import model.TaskList;
 
+import java.time.LocalDate;
+
 public class ShowHikes
 {
     private final static int BUTTON_HEIGHT = 10;
@@ -53,20 +55,9 @@ public class ShowHikes
         for (int i = 0; i < hikes.length; i++)
         {
 
-            Text msg = new Text(hikes[i].getHikeName());
+            Text msg = new Text(hikes[i].getHikeName() + " " + hikes[i].getEndTime());
 
             hikeBox.getChildren().add(msg);
-
-            msg.setOnMouseClicked(new EventHandler<MouseEvent>()
-            {
-                @Override
-                public void handle(MouseEvent event)
-                {
-
-                }
-            });
-
-            hikeBox.getChildren().addAll(msg);
         }
 
         for (int i = 0; i < buttons.length; i++)
