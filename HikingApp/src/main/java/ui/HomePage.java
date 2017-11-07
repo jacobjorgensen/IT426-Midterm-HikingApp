@@ -7,6 +7,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import model.MessageReminder;
@@ -21,6 +22,8 @@ public class HomePage
     public static Scene getScene()
     {
         MessageReminder messages = new MessageReminder();
+        Label remindText = new Label("Don't forget!");
+        Label randomReminder = new Label(messages.getRandomMessage());
         VBox box = new VBox();
         box.setAlignment(Pos.CENTER);
         box.setPadding(new Insets(Dashboard.PANEL_PADING));
@@ -37,6 +40,21 @@ public class HomePage
 
             box.getChildren().addAll(button);
         }
+
+        randomReminder.setStyle("-fx-text-fill: indigo;" +
+                "-fx-font-family: 'Franklin Gothic Book';" +
+                "-fx-font-size: 22px;" +
+                "-fx-border-color: aqua;");
+
+        randomReminder.setAlignment(Pos.CENTER);
+        randomReminder.setPrefWidth(300);
+        randomReminder.setWrapText(true);
+        randomReminder.setPadding(new Insets(10));
+
+        remindText.setStyle("-fx-font-family: 'Franklin Gothic Book';" +
+                "-fx-font-size: 15px");
+
+        box.getChildren().addAll(remindText, randomReminder);
 
         return new Scene(box, Dashboard.WIN_WIDTH, Dashboard.WIN_HEIGHT);
     }
