@@ -42,6 +42,10 @@ public class Dashboard extends Application
 
             case "Hikes": stage.setScene(ShowHikes.getScene()); break;
 
+            case "Add Hike": stage.setScene(AddHike.getScene());
+
+            case "Edit Hike": stage.setScene(EditHike.getScene());
+
             case "Tasks": stage.setScene(ShowTasks.getScene()); break;
 
             case "Messages": stage.setScene(Messages.getScene()); break;
