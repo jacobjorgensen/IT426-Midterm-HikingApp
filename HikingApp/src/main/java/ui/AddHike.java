@@ -40,7 +40,6 @@ public class AddHike
         HBox navBox = nav.getNavBar();
         VBox inputBox = new VBox();
         Button submit = new Button("Submit");
-        String[] fields = new String[]{"Location", "Hike Name", "Start Time", "End Time", "Steps", "Avg. Heart Rate"};
 
         //going to have to copy paste and make redundant because they will all require specific input types.
         Label location = new Label("Location");
