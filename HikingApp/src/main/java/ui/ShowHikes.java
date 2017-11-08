@@ -52,6 +52,8 @@ public class ShowHikes
         Hike[] hikes = hikeLog.getArrayOfHikes();
         String[] buttons = {"Add Hike"};
 
+        hikeBox.setStyle("-fx-background-color: lightblue");
+
         title.setPadding(new Insets(0, 0, 0, 150));
         title.setStyle("-fx-font-size: 20px;" +
                 "-fx-font-family: 'Arial Black'");
@@ -69,7 +71,7 @@ public class ShowHikes
         for (int i = 0; i < hikes.length; i++)
         {
             final Hike hike = hikes[i];
-            Button msg = new Button((hikes[i].getHikeName() + ", at " + hikes[i].getLocation()));
+            Button msg = new Button((hikes[i].getHikeName() + ", in " + hikes[i].getLocation()));
             msg.setAlignment(Pos.CENTER);
             msg.setStyle("-fx-background-color: transparent;" +
                     "-fx-font-family: 'Lucida Console';" +

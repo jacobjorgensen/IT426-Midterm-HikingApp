@@ -24,7 +24,6 @@ public class Dashboard extends Application
     public static final int WIN_WIDTH = 400;
     public static final int WIN_HEIGHT = 600;
     public static final int PANEL_PADING = 10;
-    private static final int FONT_SIZE = 24;
     public static Stage stage;
 
     /**

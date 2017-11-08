@@ -47,6 +47,8 @@ public class HomePage
         box.setPadding(new Insets(Dashboard.PANEL_PADING));
         box.setSpacing(10);
 
+        box.setStyle("-fx-background-color: lightblue");
+
         title.setStyle("-fx-font-size: 25px;" +
                 "-fx-font-family: 'Arial Black'");
 

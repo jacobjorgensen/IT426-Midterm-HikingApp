@@ -45,6 +45,8 @@ public class DeleteMessage
 
         Label newMessage = new Label("Enter the reminder you would like to delete:");
 
+        inputBox.setStyle("-fx-background-color: lightblue");
+
         inputBox.setPadding(new Insets(0, 20, 0, 20));
         inputBox.setSpacing(10);
 

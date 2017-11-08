@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import model.Hike;
 import model.HikeLog;
 
@@ -29,6 +30,7 @@ import model.HikeLog;
 public class EditHike
 {
     private static HikeLog hikes = new HikeLog();
+    private static Text confirm;
 
     /**
      * This method builds the Edit hike scene
@@ -42,6 +44,8 @@ public class EditHike
         VBox inputBox = new VBox();
         Button submit = new Button("Submit");
         String[] fields = new String[]{"Location", "Hike Name", "Start Time", "End Time", "Steps", "Avg. Heart Rate"};
+
+        inputBox.setStyle("-fx-background-color: lightblue");
 
         //going to have to copy paste and make redundant because they will all require specific input types.
         Label location = new Label("Location");
@@ -84,6 +88,10 @@ public class EditHike
                 hike.setSteps(Integer.parseInt(stepsInput.getText()));
                 hike.setAvgHeartRate(Integer.parseInt(heartInput.getText()));
                 hikes.updateHike(hike.getID(), hike);
+
+                confirm = new Text("Hike has been edited.");
+                confirm.setWrappingWidth(350);
+                inputBox.getChildren().add(confirm);
             }
         });
 

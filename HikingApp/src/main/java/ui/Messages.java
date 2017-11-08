@@ -44,6 +44,8 @@ public class Messages
         Label title = new Label("Message Reminders");
         String[] buttons = {"Add Reminder", "Delete Reminder"};
 
+        messages.setStyle("-fx-background-color: lightblue");
+
         title.setPadding(new Insets(0, 0, 0, 90));
         title.setStyle("-fx-font-size: 20px;" +
                 "-fx-font-family: 'Arial Black'");

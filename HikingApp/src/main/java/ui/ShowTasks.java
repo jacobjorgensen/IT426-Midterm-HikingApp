@@ -52,6 +52,8 @@ public class ShowTasks
         Task[] taskList = tasks.getArrayOfTasks();
         String[] buttons = {"Add Task", "Delete Task", "Reset Checks"};
 
+        taskBox.setStyle("-fx-background-color: lightblue");
+
         title.setPadding(new Insets(0, 0, 0, 150));
         title.setStyle("-fx-font-size: 20px;" +
                 "-fx-font-family: 'Arial Black'");

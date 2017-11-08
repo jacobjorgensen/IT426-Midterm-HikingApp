@@ -45,6 +45,8 @@ public class AddMessage
 
         Label newTask = new Label("Add a New Reminder:");
 
+        inputBox.setStyle("-fx-background-color: lightblue");
+
         inputBox.setPadding(new Insets(0, 20, 0, 20));
         inputBox.setSpacing(10);
 

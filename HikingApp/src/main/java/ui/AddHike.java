@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import model.Hike;
 import model.HikeLog;
 
@@ -28,6 +29,7 @@ import java.time.LocalDate;
 public class AddHike
 {
     private static HikeLog hikes = new HikeLog();
+    private static Text confirm;
 
     /**
      * This method builds the Add Hike scene
@@ -40,6 +42,8 @@ public class AddHike
         HBox navBox = nav.getNavBar();
         VBox inputBox = new VBox();
         Button submit = new Button("Submit");
+
+        inputBox.setStyle("-fx-background-color: lightblue");
 
         //going to have to copy paste and make redundant because they will all require specific input types.
         Label location = new Label("Location");
@@ -83,6 +87,10 @@ public class AddHike
                 nameInput.setText("");
                 stepsInput.setText("");
                 heartInput.setText("");
+
+                confirm = new Text("Hike has been added to log.");
+                confirm.setWrappingWidth(350);
+                inputBox.getChildren().add(confirm);
             }
         });
 
