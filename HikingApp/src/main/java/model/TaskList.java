@@ -115,11 +115,11 @@ public class TaskList implements Serializable
             }
 
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            e.getMessage();
         } catch (EOFException e) {
-            System.out.println("This is fine, end of file.");
+            e.getMessage();
         } catch (IOException e) {
-            System.out.println("Error initializing stream");
+            e.getMessage();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
