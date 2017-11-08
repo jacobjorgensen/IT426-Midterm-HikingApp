@@ -1,3 +1,9 @@
+/*
+ * Jacob Laqua, Mackenzie Larson, Kenny Still
+ * 11/05/2017
+ * DeleteMessage.java
+ * This class is the scene for deleting a message
+ */
 package ui;
 
 import controller.Dashboard;
@@ -13,12 +19,23 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import model.MessageReminder;
 
+/**
+ * This class contains the functionality for building the delete message scene
+ *
+ * @author Jacob Laqua, Mackenzie Larson, Kenny Still
+ * @version 1.0
+ */
 public class DeleteMessage
 {
     private static MessageReminder message = new MessageReminder();
     private static TextField input = new TextField();
     private static Text confirm;
 
+    /**
+     * This method builds the Delete Message scene
+     *
+     * @return A Scene object representation of the Delete message form UI
+     */
     public static Scene getScene()
     {
         NavBar nav = new NavBar();

@@ -1,3 +1,9 @@
+/*
+ * Jacob Laqua, Mackenzie Larson, Kenny Still
+ * 11/05/2017
+ * EditHike.java
+ * This class is the scene for editing a hike
+ */
 package ui;
 
 import controller.Dashboard;
@@ -14,10 +20,21 @@ import javafx.scene.layout.VBox;
 import model.Hike;
 import model.HikeLog;
 
+/**
+ * This class contains the functionality for building the edit hike scene
+ *
+ * @author Jacob Laqua, Mackenzie Larson, Kenny Still
+ * @version 1.0
+ */
 public class EditHike
 {
     private static HikeLog hikes = new HikeLog();
 
+    /**
+     * This method builds the Edit hike scene
+     *
+     * @return A Scene object representation of the Edit Hike form UI
+     */
     public static Scene getScene(Hike hike)
     {
         NavBar nav = new NavBar();

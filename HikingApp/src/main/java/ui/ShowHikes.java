@@ -1,3 +1,9 @@
+/*
+ * Jacob Laqua, Mackenzie Larson, Kenny Still
+ * 11/05/2017
+ * ShowHikes.java
+ * This class is the scene for showing a hike
+ */
 package ui;
 
 import controller.Dashboard;
@@ -18,13 +24,23 @@ import javafx.scene.text.TextAlignment;
 import model.Hike;
 import model.HikeLog;
 
+/**
+ * This class contains the functionality for building the show all hikes scene
+ *
+ * @author Jacob Laqua, Mackenzie Larson, Kenny Still
+ * @version 1.0
+ */
 public class ShowHikes
 {
     private final static int BUTTON_HEIGHT = 10;
     private final static int BUTTON_WIDTH = 120;
     private static HikeLog hikeLog = new HikeLog();
 
-
+    /**
+     * This method builds the Show Hikes scene
+     *
+     * @return A Scene object representation of the Show Hike UI
+     */
     public static Scene getScene()
     {
         NavBar nav = new NavBar();
@@ -82,7 +98,7 @@ public class ShowHikes
         return new Scene(hikeBox, Dashboard.WIN_WIDTH, Dashboard.WIN_HEIGHT);
     }
 
-    public static Button createButton(String buttonName)
+    private static Button createButton(String buttonName)
     {
         Button button = new Button();
 

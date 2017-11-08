@@ -1,3 +1,9 @@
+/*
+ * Jacob Laqua, Mackenzie Larson, Kenny Still
+ * 11/05/2017
+ * ShowTasks.java
+ * This class is the scene for showing the tasks
+ */
 package ui;
 
 import controller.Dashboard;
@@ -18,12 +24,23 @@ import model.Hike;
 import model.Task;
 import model.TaskList;
 
+/**
+ * This class contains the functionality for building the show tasks scene
+ *
+ * @author Jacob Laqua, Mackenzie Larson, Kenny Still
+ * @version 1.0
+ */
 public class ShowTasks
 {
     private final static int BUTTON_HEIGHT = 10;
     private final static int BUTTON_WIDTH = 120;
     private static TaskList tasks = new TaskList();
 
+    /**
+     * This method builds the Show Tasks scene
+     *
+     * @return A Scene object representation of the Show Tasks UI
+     */
     public static Scene getScene()
     {
         NavBar nav = new NavBar();
@@ -77,7 +94,7 @@ public class ShowTasks
         return new Scene(taskBox, Dashboard.WIN_WIDTH, Dashboard.WIN_HEIGHT);
     }
 
-    public static Button createButton(String buttonName)
+    private static Button createButton(String buttonName)
     {
         Button button = new Button();
 

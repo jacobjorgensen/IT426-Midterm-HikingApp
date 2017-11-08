@@ -1,3 +1,9 @@
+/*
+ * Jacob Laqua, Mackenzie Larson, Kenny Still
+ * 11/05/2017
+ * AddHike.java
+ * This class is the scene for adding a hike
+ */
 package ui;
 
 import controller.Dashboard;
@@ -13,10 +19,21 @@ import model.HikeLog;
 
 import java.time.LocalDate;
 
+/**
+ * This class contains the functionality for building the add hike scene
+ *
+ * @author Jacob Laqua, Mackenzie Larson, Kenny Still
+ * @version 1.0
+ */
 public class AddHike
 {
     private static HikeLog hikes = new HikeLog();
 
+    /**
+     * This method builds the Add Hike scene
+     *
+     * @return A Scene object representation of the Add hike form UI
+     */
     public static Scene getScene()
     {
         NavBar nav = new NavBar();

@@ -1,3 +1,9 @@
+/*
+ * Jacob Laqua, Mackenzie Larson, Kenny Still
+ * 11/05/2017
+ * AddMessage.java
+ * This class is the scene for adding a message
+ */
 package ui;
 
 import controller.Dashboard;
@@ -13,12 +19,23 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import model.MessageReminder;
 
+/**
+ * This class contains the functionality for building the add message scene
+ *
+ * @author Jacob Laqua, Mackenzie Larson, Kenny Still
+ * @version 1.0
+ */
 public class AddMessage
 {
     private static MessageReminder message = new MessageReminder();
     private static TextField input = new TextField();
     private static Text confirm;
 
+    /**
+     * This method builds the Add Message scene
+     *
+     * @return A Scene object representation of the Add message form UI
+     */
     public static Scene getScene()
     {
         NavBar nav = new NavBar();
@@ -51,7 +68,6 @@ public class AddMessage
                 inputBox.getChildren().add(confirm);
             }
         });
-
         return new Scene(inputBox, Dashboard.WIN_WIDTH, Dashboard.WIN_HEIGHT);
     }
 }

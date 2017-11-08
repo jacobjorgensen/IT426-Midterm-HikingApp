@@ -1,3 +1,9 @@
+/*
+ * Jacob Laqua, Mackenzie Larson, Kenny Still
+ * 11/05/2017
+ * NavBar.java
+ * This class is contains the logic for building the navbar
+ */
 package ui;
 
 import controller.Dashboard;
@@ -8,12 +14,23 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
+/**
+ * This class contains the functionality for building the navbar
+ *
+ * @author Jacob Laqua, Mackenzie Larson, Kenny Still
+ * @version 1.0
+ */
 public class NavBar
 {
     private String[] buttons = new String[] {"Home", "Hikes", "Tasks", "Messages"};
     private static final int BUTTON_HEIGHT = 30;
     private static final int BUTTON_WIDTH = 70;
 
+    /**
+     * Getter for a navbar
+     *
+     * @return An HBox representation of the navbar
+     */
     public HBox getNavBar()
     {
         HBox nav = new HBox();
@@ -32,7 +49,7 @@ public class NavBar
         return nav;
     }
 
-    public static Button createButton(String buttonName)
+    private Button createButton(String buttonName)
     {
         Button button = new Button();
 

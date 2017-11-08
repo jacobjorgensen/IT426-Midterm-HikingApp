@@ -21,10 +21,83 @@ public class HikeLog
     private ArrayList<Hike> logOfHikes = new ArrayList<>();
 
     /**
+     * Getter for logOfHikes
+     *
+     * @return Hike[] logOfHikes
+     */
+    public Hike[] getArrayOfHikes()
+    {
+        readHikes();
+        return logOfHikes.toArray(new Hike[0]);
+    }
+
+    /**
+     * Adds a hike to the hike log and saves it to the file
+     *
+     * @param hike The hike being added
+     */
+    public void addHike(Hike hike)
+    {
+        readHikes();
+        logOfHikes.add(hike);
+        writeHikes();
+    }
+
+    /**
+     * Gets the names of all hikes you've been on.
+     *
+     * @return String[] hikeNames A String array representation of the hike names
+     */
+    public String[] getHikeNames()
+    {
+        readHikes();
+        String[] hikeNames = new String[logOfHikes.size()];
+
+        for (int i = 0; i < hikeNames.length; i++)
+        {
+            hikeNames[i] = logOfHikes.get(i).getHikeName();
+        }
+
+        return hikeNames;
+    }
+
+    /**
+     * This method updates a already present hike with updated information
+     *
+     * @param ID The unique identifier for the hike to be updated
+     * @param hike The new Hike object information
+     */
+    public void updateHike(int ID, Hike hike)
+    {
+        readHikes();
+        for (int i = 0; i < logOfHikes.size(); i++)
+        {
+            if(logOfHikes.get(i).getID() == ID)
+            {
+                logOfHikes.set(i, hike);
+            }
+        }
+
+        writeHikes();
+    }
+
+    /**
+     * Getter for the number of hikes
+     *
+     * @return An int representation of the number of hikes
+     */
+    public int getNumberOfHikes()
+    {
+        readHikes();
+        return logOfHikes.size();
+    }
+
+    /**
      * Reads Hike objects from a file and loads them into an array.
+     *
      * @return Hike[]
      */
-    public Hike[] readHikes()
+    private Hike[] readHikes()
     {
         ArrayList<Hike> hikeList = new ArrayList<>();
 
@@ -58,9 +131,10 @@ public class HikeLog
 
     /**
      * Takes the Hike objects currently in the logOfHikes array
+     *
      * and saves them to a file.
      */
-    public void writeHikes()
+    private void writeHikes()
     {
         try {
             FileOutputStream fileOut = new FileOutputStream(new File("files/Hikes.txt"));
@@ -81,63 +155,5 @@ public class HikeLog
             System.out.println("Error initializing stream");
         }
 
-    }
-
-    /**
-     * getter for logOfHikes
-     * @return Hike[] logOfHikes
-     */
-    public Hike[] getArrayOfHikes()
-    {
-        readHikes();
-        return logOfHikes.toArray(new Hike[0]);
-    }
-
-    /**
-     * Adds a hike to the hike log and saves it to the file
-     * @param hike
-     */
-    public void addHike(Hike hike)
-    {
-        readHikes();
-        logOfHikes.add(hike);
-        writeHikes();
-    }
-
-    /**
-     * Gets the names of all hikes you've been on.
-     * @return String[] hikeNames
-     */
-    public String[] getHikeNames()
-    {
-        readHikes();
-        String[] hikeNames = new String[logOfHikes.size()];
-
-        for (int i = 0; i < hikeNames.length; i++)
-        {
-            hikeNames[i] = logOfHikes.get(i).getHikeName();
-        }
-
-        return hikeNames;
-    }
-
-    public void updateHike(int ID, Hike hike)
-    {
-        readHikes();
-        for (int i = 0; i < logOfHikes.size(); i++)
-        {
-            if(logOfHikes.get(i).getID() == ID)
-            {
-                logOfHikes.set(i, hike);
-            }
-        }
-
-        writeHikes();
-    }
-
-    public int getNumberOfHikes()
-    {
-        readHikes();
-        return logOfHikes.size();
     }
 }

@@ -1,3 +1,9 @@
+/*
+ * Jacob Laqua, Mackenzie Larson, Kenny Still
+ * 11/05/2017
+ * Messages.java
+ * This class is the scene for All messages
+ */
 package ui;
 
 import controller.Dashboard;
@@ -12,17 +18,23 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import model.MessageReminder;
 
+/**
+ * This class contains the functionality for building the messages scene
+ *
+ * @author Jacob Laqua, Mackenzie Larson, Kenny Still
+ * @version 1.0
+ */
 public class Messages
 {
     private static MessageReminder reminders = new MessageReminder();
     private final static int BUTTON_HEIGHT = 10;
     private final static int BUTTON_WIDTH = 120;
 
-    // Scene which shows messages
-    // perhaps a toast type alert
-    // if so this class can probably be removed,
-    // using MessageReminder directly from the Dashboard
-    // However, this would break MVC
+    /**
+     * This method builds the Message scene
+     *
+     * @return A Scene object representation of the message UI
+     */
     public static Scene getScene()
     {
         NavBar nav = new NavBar();
@@ -61,7 +73,7 @@ public class Messages
         return new Scene(messages, Dashboard.WIN_WIDTH, Dashboard.WIN_HEIGHT);
     }
 
-    public static Button createButton(String buttonName)
+    private static Button createButton(String buttonName)
     {
         Button button = new Button();
 

@@ -1,3 +1,9 @@
+/*
+ * Jacob Laqua, Mackenzie Larson, Kenny Still
+ * 11/05/2017
+ * HomePage.java
+ * This class is the scene for showing the home page
+ */
 package ui;
 
 import controller.Dashboard;
@@ -10,8 +16,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import model.MessageReminder;
 
+/**
+ * This class contains the functionality for building the home page scene
+ *
+ * @author Jacob Laqua, Mackenzie Larson, Kenny Still
+ * @version 1.0
+ */
 public class HomePage
 {
     private static Text title = new Text("Hello, Jose!");
@@ -19,6 +32,11 @@ public class HomePage
     private static final int BUTTON_HEIGHT = 75;
     private static final int BUTTON_WIDTH = 200;
 
+    /**
+     * This method builds the Home Page scene
+     *
+     * @return A Scene object representation of the Home UI
+     */
     public static Scene getScene()
     {
         MessageReminder messages = new MessageReminder();
@@ -45,6 +63,7 @@ public class HomePage
                 "-fx-font-family: 'Franklin Gothic Medium';" +
                 "-fx-font-size: 22px;");
 
+        randomReminder.setTextAlignment(TextAlignment.CENTER);
         randomReminder.setAlignment(Pos.CENTER);
         randomReminder.setPrefWidth(300);
         randomReminder.setWrapText(true);
@@ -58,7 +77,7 @@ public class HomePage
         return new Scene(box, Dashboard.WIN_WIDTH, Dashboard.WIN_HEIGHT);
     }
 
-    public static Button createButton(String buttonName)
+    private static Button createButton(String buttonName)
     {
         Button button = new Button();
 

@@ -1,3 +1,9 @@
+/*
+ * Jacob Laqua, Mackenzie Larson, Kenny Still
+ * 11/05/2017
+ * Dashboard.java
+ * This class has the functionality for switching scenes
+ */
 package controller;
 
 import javafx.application.Application;
@@ -7,6 +13,12 @@ import ui.*;
 import java.io.File;
 import java.net.MalformedURLException;
 
+/**
+ * This class contains the functionality for switching scenes
+ *
+ * @author Jacob Laqua, Mackenzie Larson, Kenny Still
+ * @version 1.0
+ */
 public class Dashboard extends Application
 {
     public static final int WIN_WIDTH = 400;
@@ -15,6 +27,11 @@ public class Dashboard extends Application
     private static final int FONT_SIZE = 24;
     public static Stage stage;
 
+    /**
+     * This method starts the GUI application
+     *
+     * @param stage The stage being set up for the application
+     */
     @Override
     public void start(Stage stage)
     {
@@ -27,6 +44,11 @@ public class Dashboard extends Application
         stage.show();
     }
 
+    /**
+     * This method decides which scene to load based off the button pressed
+     *
+     * @param buttonName The button that was pressed elsewhere in the program
+     */
     public static void switchScenes(String buttonName)
     {
         switch (buttonName)

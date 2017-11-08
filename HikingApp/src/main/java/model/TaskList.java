@@ -1,17 +1,106 @@
+/*
+ * Jacob Laqua, Mackenzie Larson, Kenny Still
+ * 11/05/2017
+ * TaskList.java
+ * This class is the data structure for the tasks list
+ */
 package model;
 
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * This class contains the functionality for File IO and
+ * list management for the list of Tasks
+ *
+ * @author Jacob Laqua, Mackenzie Larson, Kenny Still
+ * @version 1.0
+ */
 public class TaskList implements Serializable
 {
     private ArrayList<Task> tasks = new ArrayList<>();
 
+
     /**
-     * Reads message stringd from a file and loads them into an array.
-     * @return String[]
+     * This method retrieves a list of tasks from the Tasks.txt file
+     *
+     * @return Am array of Task objects
      */
-    public void readTasksFromFile()
+    public Task[] getArrayOfTasks()
+    {
+        readTasksFromFile();
+        return tasks.toArray(new Task[0]);
+    }
+
+    /**
+     * This method adds a new task to the list
+     *
+     * @param task The task being added
+     */
+    public void addTask(String task)
+    {
+        readTasksFromFile();
+        tasks.add(new Task(task, false));
+        writeTasksToFile();
+    }
+
+    /**
+     * This method removes a specified task from the list
+     *
+     * @param task The task being removed
+     */
+    public void removeTask(String task)
+    {
+        readTasksFromFile();
+        for (int i = 0; i < tasks.size(); i++)
+        {
+            if (tasks.get(i).getTask().equals(task))
+            {
+                tasks.remove(i);
+            }
+        }
+        writeTasksToFile();
+    }
+
+    /**
+     * This method resets the list of tasks to unchecked
+     */
+    public void resetTasksToUnchecked()
+    {
+        readTasksFromFile();
+        for (int i = 0; i < tasks.size(); i++)
+        {
+            tasks.get(i).setChecked(false);
+        }
+        writeTasksToFile();
+    }
+
+    /**
+     * This method swaps the checked boolean for a given task
+     *
+     * @param task The task which the checked status is being changed for
+     */
+    public void changeChecked(String task)
+    {
+        readTasksFromFile();
+        for (int i = 0; i < tasks.size(); i++)
+        {
+            if (task.equals(tasks.get(i).getTask()))
+            {
+                if(tasks.get(i).isChecked())
+                {
+                    tasks.get(i).setChecked(false);
+                }
+                else
+                {
+                    tasks.get(i).setChecked(true);
+                }
+            }
+        }
+        writeTasksToFile();
+    }
+
+    private void readTasksFromFile()
     {
         try (FileInputStream fileIn = new FileInputStream(new File("files/Tasks.txt"));
              ObjectInputStream objIn = new ObjectInputStream(fileIn)){
@@ -36,10 +125,7 @@ public class TaskList implements Serializable
         }
     }
 
-    /**
-     * Takes the message strings currently in the array and places them in the file
-     */
-    public void writeTasksToFile()
+    private void writeTasksToFile()
     {
         try {
             FileOutputStream fileOut = new FileOutputStream(new File("files/Tasks.txt"));
@@ -59,70 +145,5 @@ public class TaskList implements Serializable
         } catch (IOException e) {
             System.out.println("Error initializing stream");
         }
-    }
-
-    /**
-     * getter for messages array
-     * @return String[] logOfHikes
-     */
-    public Task[] getArrayOfTasks()
-    {
-        readTasksFromFile();
-        return tasks.toArray(new Task[0]);
-    }
-
-    public void addTask(String task)
-    {
-        readTasksFromFile();
-        tasks.add(new Task(task, false));
-        writeTasksToFile();
-    }
-
-    public void removeTask(String task)
-    {
-        readTasksFromFile();
-        for (int i = 0; i < tasks.size(); i++)
-        {
-            if (tasks.get(i).getTask().equals(task))
-            {
-                tasks.remove(i);
-            }
-        }
-
-        writeTasksToFile();
-    }
-
-    /**
-     * This method resets the list of tasks to unchecked
-     */
-    public void resetTasksToUnchecked()
-    {
-        readTasksFromFile();
-        for (int i = 0; i < tasks.size(); i++)
-        {
-            tasks.get(i).setChecked(false);
-        }
-
-        writeTasksToFile();
-    }
-
-    public void changeChecked(String task)
-    {
-        readTasksFromFile();
-        for (int i = 0; i < tasks.size(); i++)
-        {
-            if (task.equals(tasks.get(i).getTask()))
-            {
-                if(tasks.get(i).isChecked())
-                {
-                    tasks.get(i).setChecked(false);
-                }
-                else
-                {
-                    tasks.get(i).setChecked(true);
-                }
-            }
-        }
-        writeTasksToFile();
     }
 }

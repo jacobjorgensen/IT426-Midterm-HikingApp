@@ -28,6 +28,7 @@ public class Hike implements Serializable
 
     /**
      * Construtor for the Hike class
+     *
      * @param ID : Incremented ID for each hike
      * @param location : Location of the Hike
      * @param hikeName : Name of the Hike
@@ -50,6 +51,7 @@ public class Hike implements Serializable
 
     /**
      * Getter for ID
+     *
      * @return int ID
      */
     public int getID()
@@ -67,7 +69,8 @@ public class Hike implements Serializable
     }
 
     /**
-     * getter for location
+     * Getter for location
+     *
      * @return String location
      */
     public String getLocation()
@@ -76,7 +79,8 @@ public class Hike implements Serializable
     }
 
     /**
-     * setter for location
+     * Setter for location
+     *
      * @param location : location of the hike
      */
     public void setLocation(String location)
@@ -85,7 +89,8 @@ public class Hike implements Serializable
     }
 
     /**
-     * getter for hikeName
+     * Getter for hikeName
+     *
      * @return String hikeName
      */
     public String getHikeName()
@@ -94,7 +99,8 @@ public class Hike implements Serializable
     }
 
     /**
-     * setter for hikeName
+     * Setter for hikeName
+     *
      * @param hikeName : name of the hike
      */
     public void setHikeName(String hikeName)
@@ -103,7 +109,8 @@ public class Hike implements Serializable
     }
 
     /**
-     * getter for startTime
+     * Getter for startTime
+     *
      * @return LocalDateTime startTime
      */
     public LocalDate getStartTime()
@@ -112,7 +119,8 @@ public class Hike implements Serializable
     }
 
     /**
-     * setter for startTime
+     * Setter for startTime
+     *
      * @param startTime : Time to start hike
      */
     public void setStartTime(LocalDate startTime)
@@ -121,7 +129,8 @@ public class Hike implements Serializable
     }
 
     /**
-     * getter for endTime
+     * Getter for endTime
+     *
      * @return LocalDateTime endTime
      */
     public LocalDate getEndTime()
@@ -130,7 +139,8 @@ public class Hike implements Serializable
     }
 
     /**
-     * setter for endTime
+     * Setter for endTime
+     *
      * @param endTime : Time to end hike
      */
     public void setEndTime(LocalDate endTime)
@@ -139,7 +149,8 @@ public class Hike implements Serializable
     }
 
     /**
-     * getter for steps
+     * Getter for steps
+     *
      * @return int steps
      */
     public int getSteps()
@@ -148,7 +159,8 @@ public class Hike implements Serializable
     }
 
     /**
-     * setter for steps
+     * Setter for steps
+     *
      * @param steps : Steps taken during hike
      */
     public void setSteps(int steps)
@@ -157,7 +169,8 @@ public class Hike implements Serializable
     }
 
     /**
-     * getter for avgHeartRate
+     * Getter for avgHeartRate
+     *
      * @return int avgHeartRate
      */
     public int getAvgHeartRate()
@@ -166,7 +179,8 @@ public class Hike implements Serializable
     }
 
     /**
-     * setter for avgHeartRate
+     * Setter for avgHeartRate
+     *
      * @param avgHeartRate : Average heart rate during the hike
      */
     public void setAvgHeartRate(int avgHeartRate)

@@ -1,3 +1,9 @@
+/*
+ * Jacob Laqua, Mackenzie Larson, Kenny Still
+ * 11/05/2017
+ * DeleteTask.java
+ * This class is the scene for deleting a task
+ */
 package ui;
 
 import controller.Dashboard;
@@ -13,12 +19,23 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import model.TaskList;
 
+/**
+ * This class contains the functionality for building the delete task scene
+ *
+ * @author Jacob Laqua, Mackenzie Larson, Kenny Still
+ * @version 1.0
+ */
 public class DeleteTask
 {
     private static TaskList task = new TaskList();
     private static TextField input = new TextField();
     private static Text confirm;
 
+    /**
+     * This method builds the Delete Task scene
+     *
+     * @return A Scene object representation of the Delete task form UI
+     */
     public static Scene getScene()
     {
         NavBar nav = new NavBar();
