@@ -108,18 +108,15 @@ public class HikeLog
             while (true)
             {
                 Hike hike = (Hike) objIn.readObject();
-
                 hikeList.add(hike);
-
-                System.out.println(hike.toString());
             }
 
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            e.getMessage();
         } catch (EOFException e) {
-            System.out.println("This is fine, end of file.");
+            e.getMessage();
         } catch (IOException e) {
-            System.out.println("Error initializing stream");
+            e.getMessage();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -145,14 +142,13 @@ public class HikeLog
             {
                 objOut.writeObject(logOfHikes.get(i));
             }
-
             objOut.close();
             fileOut.close();
 
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            e.getMessage();
         } catch (IOException e) {
-            System.out.println("Error initializing stream");
+            e.getMessage();
         }
 
     }

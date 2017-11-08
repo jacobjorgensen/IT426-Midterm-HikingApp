@@ -87,10 +87,8 @@ public class MessageReminder implements Serializable
             reader.close();
         } catch (FileNotFoundException e) {
             e.getMessage();
-            System.out.println("File not found");
         } catch (IOException e) {
             e.getMessage();
-            System.out.println("Error initializing stream");
         }
     }
 
@@ -109,7 +107,6 @@ public class MessageReminder implements Serializable
 
         } catch (FileNotFoundException e) {
             e.getMessage();
-            System.out.println("File not found");
         }
     }
 }
