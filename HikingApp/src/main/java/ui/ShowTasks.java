@@ -106,8 +106,8 @@ public class ShowTasks
 
         button.setStyle("-fx-background-color: transparent;" +
                 "-fx-font-family: 'Lucida Console';" +
-                "-fx-font-size: 10px;" +
-                "-fx-text-fill: cadetblue");
+                "-fx-font-size: 13px;" +
+                "-fx-text-fill: royalblue");
         button.setUnderline(true);
 
         button.setOnAction(new EventHandler<ActionEvent>()
