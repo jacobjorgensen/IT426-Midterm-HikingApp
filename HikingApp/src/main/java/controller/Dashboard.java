@@ -37,7 +37,7 @@ public class Dashboard extends Application
     {
         // save the stage for later
         this.stage = stage;
-
+        stage.setTitle("Hiking App");
         // show the waiting screen
         stage.setScene(HomePage.getScene());
 
